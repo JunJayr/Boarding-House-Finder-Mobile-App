@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tanle/bottom_navbar.dart';
-import 'package:tanle/nav_pages/home_page.dart';
 
 class MyInsertTile extends StatefulWidget {
   const MyInsertTile({Key? key}) : super(key: key);

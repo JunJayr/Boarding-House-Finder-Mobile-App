@@ -17,14 +17,14 @@ class ProfilePage extends StatelessWidget {
       builder: (context) => AlertDialog(
         backgroundColor: Colors.blue,
         title: Text(
-          'Edit' + field,
+          'Edit $field',
           style: const TextStyle(color: Colors.white),
         ),
         content: TextField(
           autofocus: true,
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
-            hintText: "Enter Now $field",
+            hintText: "Enter new $field",
             hintStyle: const TextStyle(color: Colors.white),
           ),
           onChanged: (value) {
@@ -59,8 +59,6 @@ class ProfilePage extends StatelessWidget {
     }
   }
 
-  // edit field
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,28 +74,25 @@ class ProfilePage extends StatelessWidget {
             .doc(currentUser.email)
             .snapshots(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else if (snapshot.hasData && snapshot.data!.exists) {
+            // Data exists. Safely cast.
             final userData = snapshot.data!.data() as Map<String, dynamic>;
             return ListView(
               children: [
                 const SizedBox(height: 50),
-                // profile pic
                 const Icon(
                   Icons.person,
                   size: 72,
                 ),
-
                 const SizedBox(height: 10),
-
-                // user email
                 Text(
                   currentUser.email!,
                   textAlign: TextAlign.center,
                   style: const TextStyle(color: Colors.black),
                 ),
-
                 const SizedBox(height: 50),
-                // user details
                 const Padding(
                   padding: EdgeInsets.only(left: 25.0),
                   child: Text(
@@ -105,20 +100,16 @@ class ProfilePage extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                 ),
-                // username
                 MyTextBox(
                   text: userData['username'],
                   sectionName: 'username',
                   onPressed: () => editField(context, 'username'),
                 ),
-
-                //bio
                 MyTextBox(
                   text: userData['bio'],
                   sectionName: 'bio',
                   onPressed: () => editField(context, 'bio'),
                 ),
-
                 const SizedBox(height: 50),
               ],
             );

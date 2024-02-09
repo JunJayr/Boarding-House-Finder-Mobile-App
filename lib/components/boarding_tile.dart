@@ -67,6 +67,11 @@ class BoardingTile extends StatelessWidget {
                 const SizedBox(height: 5),
                 Row(
                   children: [
+                    const Icon(
+                      Icons.discount,
+                      size: 15,
+                      color: Colors.black,
+                    ),
                     Text(boarding.discount),
                     const SizedBox(
                       width: 10,
@@ -105,7 +110,7 @@ class BoardingTile extends StatelessWidget {
                 const SizedBox(height: 5),
                 Row(
                   children: [
-                    Icon(Icons.price_change),
+                    const Icon(Icons.price_change),
                     Text(
                       boarding.price,
                       style: const TextStyle(

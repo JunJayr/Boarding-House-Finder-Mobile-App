@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:tanle/Intro_page.dart';
 import 'package:tanle/bottom_navbar.dart';
 
 import 'firebase_options.dart';

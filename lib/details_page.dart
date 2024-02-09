@@ -157,19 +157,28 @@ class BoardDetailsScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Description',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16)),
+                          SizedBox(height: 8),
+                        ],
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16.0, vertical: 8.0),
-                      child: Column(
+                      child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Description',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16)),
-                          const SizedBox(height: 8),
                           Text(
                             description ?? '',
-                            style: const TextStyle(fontSize: 10),
+                            style: const TextStyle(fontSize: 12),
                           ),
                         ],
                       ),
@@ -179,6 +188,9 @@ class BoardDetailsScreen extends StatelessWidget {
                           horizontal: 16.0, vertical: 8.0),
                       child: Row(
                         children: [
+                          const Text('Contact Info',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16)),
                           Text(contactInfo['ContactInfo'] ?? '',
                               style:
                                   const TextStyle(fontWeight: FontWeight.bold)),
