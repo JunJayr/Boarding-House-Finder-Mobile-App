@@ -52,7 +52,8 @@ class BookSummaryPage extends StatelessWidget {
             String formattedCheckInDate = formatTimestamp(data['checkindate']);
 
             // Calculate amount and appfee
-            double price = data['Price']?.toDouble() ?? 0.0;
+            double price =
+                double.tryParse(data['Price']?.toString() ?? '0.0') ?? 0.0;
             double appFee = data['appfee']?.toDouble() ?? 0.0;
             double total = price + appFee;
 

@@ -22,7 +22,7 @@ class _FetchDataScreenState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Boarding Houses',
+        title: const Text('Boarding Houses',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
         backgroundColor: Colors.blue,
         automaticallyImplyLeading: false,
